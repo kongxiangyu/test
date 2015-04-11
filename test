@@ -1,0 +1,16 @@
+#include<stdio.h>
+int MaxSum3(int * A,int n)
+{//优化方案 时间O（n） 空间  O(1)  
+int nStart=A[n-1];  
+int nAll=A[n-1];   
+for(int i=n-2;i>=0;i--)
+{        if(nStart<0)      
+nStart=0;       
+nStart+=A[i];       
+if(nStart>nAll)       
+nAll=nStart;    }   
+return nAll;}int main(){   
+for(int i=0;i<N;i++){             
+scanf("%d",&A[I]);    }    
+printf("%d",MaxSum3(A,N));   
+return 0;}
