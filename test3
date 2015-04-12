@@ -1,0 +1,57 @@
+
+1　package test; 
+2 /** 
+3  * 第四题 
+4  * 在主窗体中显示随鼠标移动的helloworld 
+5  */ 
+6 import java.awt.Color; 
+7 import java.awt.Graphics; 
+8 import java.awt.Graphics2D; 
+9 import java.awt.event.MouseEvent; 
+10 import java.awt.event.MouseMotionListener; 
+11 
+ 
+12 import javax.swing.JFrame; 
+13 import javax.swing.JPanel; 
+14 
+ 
+15 public class TestMoveString { 
+16 	private static int x=200; 
+17 	private static int y=300; 
+18 	public static void main(String[] args) { 
+19 		JFrame jf=new JFrame("hello  world"); 
+20 		final JPanel jp=new JPanel(){ 
+21 			public void paint(Graphics g){ 
+22 				Graphics2D g2=(Graphics2D) g; 
+23 				g2.setColor(Color.white); 
+24 				g2.fillRect(0, 0, 500, 400); 
+25 				g2.setColor(Color.black); 
+26 				g2.drawString("helloWorld", x, y); 
+27 			} 
+28 		}; 
+29 		jp.addMouseMotionListener(new MouseMotionListener() { 
+30 			 
+31 			@Override 
+32 			public void mouseMoved(MouseEvent e) { 
+33 			} 
+34 			 
+35 			@Override 
+36 			public void mouseDragged(MouseEvent e) { 
+37 				// TODO Auto-generated method stub 
+38 				x=e.getX(); 
+39 				y=e.getY(); 
+40 				jp.repaint(); 
+41 				 
+42 			} 
+43 		}); 
+44 		jf.add(jp); 
+45 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+46 		jf.setSize(500, 400); 
+47 		jf.setVisible(true); 
+48 	} 
+49 } 
+ 
+
+
+
+ 
